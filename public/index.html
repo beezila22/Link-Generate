@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kazi Bora Mtaani</title>
+<style>
+  body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:0;background:#071428;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh}
+  .card{max-width:720px;padding:28px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));}
+  .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;background:#00b894;color:#042023}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Kazi Bora Mtaani</h1>
+    <p>Unaelekezwa... tafadhali subiri chache au bonyeza Endelea.</p>
+    <a id="go" class="btn" href="#">Endelea ▶</a>
+  </div>
+<script>
+  fetch('/api/target').then(r=>r.json()).then(j=>{
+    const url = j.target;
+    document.getElementById('go').href = url;
+    setTimeout(()=> location.href = url, 900);
+  }).catch(()=>{
+    // fallback (hard-coded)
+    setTimeout(()=> location.href = 'https://1818:18:18:18:0', 900);
+  });
+</script>
+</body>
+</html>
